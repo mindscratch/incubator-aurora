@@ -9,6 +9,8 @@ In this document a CentOS 6.5 (x86_64) server with 8GB RAM and 20GB disk was
 setup on Digital Ocean, though any hosting provider that allows you to perform
 the steps outlined below should suffice.
 
+These steps were tested against `0.7.1-SNAPSHOT`.
+
 ## Prepare the Environment
 
 Before building Aurora, you first need to install the packages required to do
