@@ -37,25 +37,18 @@ make && make altinstall
 #######################
 yum install -y java-1.7.0-openjdk-devel
 
-#   Install Gradle
-#######################
-cd ~
-wget https://services.gradle.org/distributions/gradle-2.2.1-all.zip
-unzip gradle-2.2.1-all.zip
-
 #  Update bash_profile
 #######################
 vi ~/.bash_profile
 
-# put gradle and python on path
-GRADLE_HOME=/root/gradle-2.2.1
-PATH=/usr/local/bin:$PATH:$HOME/bin:$GRADLE_HOME/bin
+# put python on the path
+PATH=/usr/local/bin:$PATH:$HOME/bin
 
 source ~/.bash_profile
 ```
 
 At this point you should have a slew of development related packages installed,
-as well as Python 2.7, Java 7 and Gradle 2.2.1. Next, you'll build all of
+as well as Python 2.7 and Java 7. Next, you'll build all of
 the Aurora components.
 
 ## Build Aurora
@@ -119,7 +112,6 @@ EOF
 
 #   Build the scheduler
 #######################
-gradle wrapper
 ./gradlew distTar
 ```
 
