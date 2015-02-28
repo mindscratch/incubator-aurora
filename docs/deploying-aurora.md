@@ -1,11 +1,14 @@
+The deployment of Aurora consists of several components: scheduler, executors
+and observer.
+
 # Deploying the Aurora Scheduler
 
 When setting up your cluster, you will install the scheduler on a small number (usually 3 or 5) of
 machines.  This guide helps you get the scheduler set up and troubleshoot some common hurdles.
 
-- [Installing Aurora](#installing-aurora)
-  - [Creating the Distribution .zip File (Optional)](#creating-the-distribution-zip-file-optional)
-  - [Installing Aurora](#installing-aurora-1)
+- [Aurora Scheduler](#aurora-scheduler)
+  - [Build](#build-scheduler)
+  - [Install](#install-scheduler)
 - [Configuring Aurora](#configuring-aurora)
   - [A Note on Configuration](#a-note-on-configuration)
   - [Replicated Log Configuration](#replicated-log-configuration)
@@ -31,12 +34,26 @@ machines.  This guide helps you get the scheduler set up and troubleshoot some c
     - [Symptoms](#symptoms-2)
     - [Solution](#solution-2)
 
-## Installing Aurora
+# Deploying the Aurora Executors
+
+- [Aurora Executors](#aurora-exectuors)
+  - [Build](#build-executors)
+  - [Install](#install-executors)
+
+# Deploying the Aurora Observer
+
+- [Aurora Executors](#aurora-exectuors)
+  - [Creating the PEX Files](#creating-the-executor-pex-files)
+  - [Install the Executors](#install-the-executors)
+
+TODO
+
+## <a name="aurora-scheduler"></a>Aurora Scheduler
 The Aurora scheduler is a standalone Java server. As part of the build process it creates a bundle
 of all its dependencies, with the notable exceptions of the JVM and libmesos. Each target server
 should have a JVM (Java 7 or higher) and libmesos (0.21.1) installed.
 
-### Creating the Distribution .zip File (Optional)
+### <a name="build-scheduler"></a>Build
 To create a distribution for installation you will need build tools installed. On Ubuntu this can be
 done with `sudo apt-get install build-essential default-jdk`.
 
@@ -46,7 +63,7 @@ done with `sudo apt-get install build-essential default-jdk`.
 
 Copy the generated `dist/distributions/aurora-scheduler-*.zip` to each node that will run a scheduler.
 
-### Installing Aurora
+### <a name="install-scheduler"></a>Install
 Extract the aurora-scheduler zip file. The example configurations assume it is extracted to
 `/usr/local/aurora-scheduler`.
 
@@ -275,3 +292,26 @@ slaves are tagged with these two common failure domains to ensure that it can sa
 such that jobs are resilient to failure.
 
 See our [vagrant example](examples/vagrant/upstart/mesos-slave.conf) for details.
+
+## <a name="aurora-executors"></a>Aurora Executors
+
+...
+
+### <a name="build-executors">Build
+
+...
+
+### <a name="install-executors"></a>Install
+
+...
+
+## <a name="aurora-observer"></a>Aurora Observe
+
+optional
+...
+
+### <a name="build-observer">Build
+
+...
+
+### <a name="install-observer"></a>Install
